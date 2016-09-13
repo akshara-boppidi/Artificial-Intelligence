@@ -1,0 +1,20 @@
+6 pts
+
+Akshara,
+
+- You showed a nice proof that you have all the necessary setup for python.
+
+- You showed a nice proof that you have a GitHub account and that you added me as a
+  collaborator.
+
+- You provided a nice proof that you created a Kaggle account.
+
+
+Overall a barely acceptable work:
+- No problems solved at all -16pts
+- No $\LaTeX$
+
+
+Peace,
+
+- Dr. Pablo Rivas
