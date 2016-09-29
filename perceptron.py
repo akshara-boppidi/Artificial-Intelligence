@@ -3,20 +3,15 @@ import random
 import os, subprocess
 import matplotlib.pyplot as plt
  
+ 
 class Perceptron:
     def __init__(self, N):
         # Random linearly separated data
         self.X = self.generate_points(N)
  
     def generate_points(self, N):
-        def frange(start, stop, step):
-            sep = start
-            while sep < stop:
-                yield sep
-                sep += step
-            for sep in frange(0.2,5,0.2) :
-		        X, y = self.make_semi_circles(n_samples=N, sep)
-                bX = []
+        X, y = self.make_semi_circles(n_samples=N, sep=0.6)
+        bX = []
         for k in range(0,N) :
             bX.append((np.concatenate(([1], X[k,:])), y[k]))
         
@@ -25,7 +20,7 @@ class Perceptron:
         self.linRegW = np.linalg.pinv(X.T.dot(X)).dot(X.T).dot(y)   # lin reg
         return bX
 
-    def make_semi_circles(self, n_samples=2000, thk=5, rad=10, sep, plot=True):
+    def make_semi_circles(self, n_samples=2000, thk=5, rad=10, sep=0.6, plot=True):
         """Make two semicircles circles
         A simple toy dataset to visualize classification algorithms.
         Parameters
@@ -51,7 +46,7 @@ class Perceptron:
         noisey = np.random.uniform(low=-thk/100.0, high=thk/100.0, size=(n_samples // 2))
         
         noisex = np.random.uniform(low=-rad/100.0, high=rad/100.0, size=(n_samples // 2))
-      
+        
         separation = np.ones(n_samples // 2)*((-sep*0.1)-0.6)
         
         
@@ -73,7 +68,7 @@ class Perceptron:
         if plot:
             plt.plot(outer_circ_x, outer_circ_y, 'r.')
             plt.plot(inner_circ_x, inner_circ_y, 'b.')
-            #plt.show()
+            plt.show()
     
         return X, y
     
@@ -172,8 +167,6 @@ def main():
 
 
 main()
-
-
 
 
 
